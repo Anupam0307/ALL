@@ -21,7 +21,10 @@ pipeline {
 
  post { 
         always { 
-            echo 'I will always say Hello again!'
+            echo 'Hello'
         }
+       success {
+           echo 'Build was successfull'
+         }
     }
 }
