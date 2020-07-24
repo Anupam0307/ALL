@@ -12,7 +12,8 @@ pipeline {
            steps {
                  echo 'Build images and run conatiners using docker files'
                  sh 'cd /home/ubuntu/'
-                 sh 'sudo docker-compose up -d'                 
+                 sh 'sudo docker-compose up -d'
+                  sh 'sudo touch 11.txt'                 
                   sh 'sudo ls -l'
             }
         }
