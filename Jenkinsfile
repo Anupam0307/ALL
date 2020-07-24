@@ -11,7 +11,7 @@ pipeline {
      stage('Docker-compose build') {
            steps {
                  echo 'Build images and run conatiners using docker files'
-                 sh 'cd /home/ubuntu/Git/ALL'
+                 sh 'cd /home/ubuntu/'
                  sh 'sudo docker-compose up -d'                 
                   sh 'sudo ls -l'
             }
