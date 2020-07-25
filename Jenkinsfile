@@ -11,7 +11,7 @@ pipeline {
      stage('Build Artifacts') {
            steps {
                  echo 'Build Artifacts'
-                 #sh 'cd /home/ubuntu/beps10'
+                 
                  sh 'sudo mvn package'
               
             }
