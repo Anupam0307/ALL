@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Slave1' }
+    agent any
     stages {
         stage('Git Checkout') {
            steps {
@@ -8,20 +8,27 @@ pipeline {
               
             }
         }
-     stage('Docker-compose build') {
+     stage('Build Artifacts') {
            steps {
-                 echo 'Build images and run conatiners using docker files'
-                 sh 'cd /home/ubuntu/'
-                 sh 'sudo docker-compose up -d'
-                  sh 'sudo touch 11.txt'                 
-                  sh 'sudo ls -l'
+                 echo 'Build Artifacts'
+                 sh 'cd /home/ubuntu/beps10'
+                 sh 'sudo mvn package'
+              
             }
         }
-      }
-    
 
- post { 
-        always { 
+        stage('Docker-compose build') {
+           steps {
+                 echo 'Build images and run conatiners using docker files'
+                 sh 'docker-compose up -d'
+     
+      }
+    }
+
+}
+
+ post {
+        always {
             echo 'Hello'
         }
        success {
@@ -29,3 +36,6 @@ pipeline {
          }
     }
 }
+
+
+
