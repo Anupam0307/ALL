@@ -29,11 +29,15 @@ pipeline {
 
  post {
         always {
-            echo 'Hello'
+            echo 'Print this message always'
         }
        success {
            echo 'Build was successfull'
          }
+       failure {
+           echo 'Build was unstable'
+         }
+
     }
 }
 
