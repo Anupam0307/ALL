@@ -21,7 +21,7 @@ pipeline {
            steps {
                  echo 'Build images and run conatiners using docker files'
                  sh 'cd /home/ubuntu/Git/ALL'
-                 sh 'docker-compose up -d'
+                 sh 'sudo docker-compose up -d'
      
       }
     }
