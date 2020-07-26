@@ -1,0 +1,9 @@
+---
+
+- hosts: dbserver
+  name: copy file from webserver to dbserver  
+  tasks:
+   - name: move file
+     copy:
+       src: /var/lib/jenkins/workspace/Pipeline
+       dest: /home/ubuntu/

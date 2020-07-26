@@ -26,6 +26,15 @@ pipeline {
       }
     }
 
+    stage('Ansible-Task') {
+           steps {
+                 echo 'Move the artifacts to the slave server'
+                 sh 'cd /home/ubuntu/Git/ALL'
+                 sh 'sudo ansible-playbook Move.yaml'
+
+      }
+    }
+
 }
 
  post {
