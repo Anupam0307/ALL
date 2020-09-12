@@ -1,39 +1,15 @@
 pipeline {
-    agent any
+    agent {
+    label 'Slave2' }
     stages {
         stage('Git Checkout') {
            steps {
                  echo 'Git checkout'
-                 git 'https://github.com/Anupam0307/ALL.git'
-              
-            }
-        }
-     stage('Build Artifacts') {
-           steps {
-                 echo 'Build Artifacts'
-                 
-                 sh 'sudo mvn package'
-              
+                git 'https://github.com/Anupam0307/ALL.git'
+                sh 'sudo touch 56.txt'
             }
         }
 
-        stage('Docker-compose build') {
-           steps {
-                 echo 'Build images and run conatiners using docker files'
-                 sh 'cd /home/ubuntu/Git/ALL'
-                 sh 'sudo docker-compose up -d'
-     
-      }
-    }
-
-    stage('Ansible-Task') {
-           steps {
-                 echo 'Move the artifacts to the slave server'
-                 sh 'cd /home/ubuntu/Git/ALL'
-                 sh 'sudo ansible-playbook Move.yaml'
-
-      }
-    }
 
 }
 
@@ -50,6 +26,4 @@ pipeline {
 
     }
 }
-
-
 
