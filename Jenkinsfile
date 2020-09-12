@@ -4,15 +4,15 @@ pipeline {
         stage('Git Checkout') {
            steps {
                  echo 'Git checkout'
-                 git 'https://github.com/Anupam0307/ALL.git'
-              
+                # git 'https://github.com/Anupam0307/ALL.git'
+                sh 'sudo touch 55.txt'
             }
         }
      stage('Build Artifacts') {
            steps {
                  echo 'Build Artifacts'
                  
-                 sh 'sudo mvn package'
+                 #sh 'sudo mvn package'
               
             }
         }
@@ -20,8 +20,8 @@ pipeline {
         stage('Docker-compose build') {
            steps {
                  echo 'Build images and run conatiners using docker files'
-                 sh 'cd /home/ubuntu/Git/ALL'
-                 sh 'sudo docker-compose up -d'
+                 #sh 'cd /home/ubuntu/Git/ALL'
+                 #sh 'sudo docker-compose up -d'
      
       }
     }
@@ -29,8 +29,8 @@ pipeline {
     stage('Ansible-Task') {
            steps {
                  echo 'Move the artifacts to the slave server'
-                 sh 'cd /home/ubuntu/Git/ALL'
-                 sh 'sudo ansible-playbook Move.yaml'
+                 #sh 'cd /home/ubuntu/Git/ALL'
+                 #sh 'sudo ansible-playbook Move.yaml'
 
       }
     }
