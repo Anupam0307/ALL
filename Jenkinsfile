@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent {
+    label 'Slave1' }
     stages {
         stage('Git Checkout') {
            steps {
