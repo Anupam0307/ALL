@@ -6,7 +6,7 @@ pipeline {
            steps {
                  echo 'Git checkout'
                 git 'https://github.com/Anupam0307/ALL.git'
-                sh 'sudo touch 55.txt'
+                sh 'sudo touch 58.txt'
             }
         }
      
